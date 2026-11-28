@@ -62,11 +62,6 @@ jobs:
         run: |
           echo "date=$(date +'%d.%m.%Y %H:%M')" >> $GITHUB_OUTPUT
 
-      - name: Get md5 hash
-        id: md5hash
-        run: |
-          md5sum exynos9810_gavdoc38-ksu.zip >> $GITHUB_OUTPUT
-
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
@@ -75,6 +70,5 @@ jobs:
           body: |
             ### KernelSU kernel for LineageOS 24.0 on Exynos 9810
             - Kernel source: https://github.com/gavdoc38/android_kernel_samsung_exynos9810/releases
-            - MD5: `${{ steps.date.outputs.md5hash }}`
           files: |
             exynos9810_gavdoc38-ksu.zip
